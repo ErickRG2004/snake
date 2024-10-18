@@ -1,0 +1,111 @@
+@startuml Diagrama
+
+class Persona
+class Foco{
+    - Bool encendido
+    + Encender()
+    + Apagar()
+}
+Class Juego
+Class Menu
+Class Logo
+Class Puntaje
+Class Limite
+Class Mapa
+Class Pared
+Class Serpiente{
+}
+Class Sonido
+Class Manzana{
++ Bonificacion:Comer()
+}
+Class Posicion
+Class Direccion
+Class Eslabon
+Class Volumen
+Class Derecha
+Class Izquierda
+Class Arriba
+Class Abajo
+Class Cabeza
+Class Cuerpo
+Class Cola
+Class Opcion
+Class Bonificacion
+Class Casilla{
++ Colocar(Manzana)
++ Eslabon:Recoger()
+}
+Class Jugar
+Class Dificultad
+Class Reinicio
+Class Velocidad
+Class GestoCasilla{
++ ColocarAleatorio(Mapa)
+}
+Class Nivel
+Class Partida
+Class Jugador
+Class Colision
+
+Persona o-- Foco
+Juego*--Mapa
+Juego*-- Menu
+Juego *-- Nivel
+Juego o-- GestoCasilla
+Juego "1" *-- "1" Jugador
+Jugador "1" o-- "1" Serpiente
+Menu*-- Opcion
+Juego*-- Logo
+Juego*--Serpiente
+Juego*--Sonido
+Juego*-- Nombre
+Juego*--Manzana
+Juego*-- Puntaje
+Puntaje*-- Limite
+Mapa "1"*--"4" Pared
+Pared --|> Colision
+Mapa *-- Casilla
+Manzana *-- Posicion
+Serpiente *-- Direccion
+Serpiente *-- Velocidad
+Direccion <|-- Derecha
+Direccion <|-- Izquierda
+Direccion <|-- Arriba
+Direccion <|-- Abajo
+Serpiente "1"*--"1..254" Eslabon
+Eslabon --|> Colision
+Sonido *--  Volumen
+Serpiente o--Manzana
+Serpiente o-- Mapa
+Serpiente *-- Cabeza
+Serpiente *-- Cuerpo
+Serpiente *-- Cola
+Manzana *-- Bonificacion
+Opcion <|-- Jugar
+Opcion <|-- Reinicio
+Opcion <|-- Dificultad
+GestoCasilla o-- Casilla
+Nivel *-- Partida
+Jugar o-- Partida
+Reinicio o-- Nivel
+Dificultad o-- Velocidad
+Serpiente o-- Casilla
+Puntaje <|-- Bonificacion
+Cabeza --|> Eslabon
+
+Class Dibujo
+Class Lienzo
+Class Pintor
+
+Lienzo "1" *-- "*" Dibujo
+Pintor "1" o-- "*" Dibujo
+Pintor o-- Lienzo
+
+Eslabon --|> Dibujo
+
+Juego "1" o-- "1" Pintor
+Manzana --|> Dibujo
+Mapa --|> Dibujo
+
+@enduml
