@@ -19,16 +19,17 @@ int main(int argc, char const *argv[])
           serie1.Alternar(estado);
           lienzo.Dibujar(serie1);
           estado = estado ? false : true;
-
+          sleep(1);
+          lienzo.Limpiar();
           //Incremento
 
           serie2.Apagar();
-          serie2.Encender(5);
-          lienzo.Dibujar(serie2);
+          serie2.Encender(incremento);
           incremento++;
+          lienzo.Dibujar(serie2);
+          
 
-          sleep(1);
-          lienzo.Limpiar();
+          
      }
 
      return 0;
